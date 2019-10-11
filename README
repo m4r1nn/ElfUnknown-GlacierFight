@@ -1,0 +1,44 @@
+Burcea Marian-Gabriel 314CA - Tema 3
+
+ElfUnknown's - Glacierfight
+
+	Fiind o problema complexa, macar la nivel de efort, am utilizat 2 tipuri de
+structuri pe care le am definit la inceputul programului:
+ - Glaciar, utilizata pentru matricea-ghetar
+ - Fighter, utilizata pentru vectorul de jucatori
+	Structurile a[][] (ghetarul) si player[] (jucatorii) sunt utilizate pe tot
+parcursul programului.
+
+	Descrierea functiilor si a modului de lucru:
+1) In <int main()> sunt deschise fisierele de intrare si iesire, sunt declarate
+variabilele principale (ex: R, n, remain), este alocata memorie pentru
+ghetar si eliberata la final, dupa ce sunt apelate <read_data()> si
+<making_moves()> .
+2) Functiile <swaps()> si <swap_struct()> sunt apelate ori de cate ori trebuie
+interschimbate 2 variabile sau structuri (ex: manusile piticilor, in scoreboard).
+3) In <read_data()> este alocata memorie pentru vectorul de pitici, sunt citite
+o parte dintre campurile structurilor (ex: hill, gloves, line, column, hp,
+stamina) si sunt initializate celelalte in functie de acestea (ex: is_on_map,
+kills).
+4) In <making_moves()> sunt citite comenzile din fisier si in functie de comanda
+se apeleaza o anumita functie care o va executa.
+5) Functia <move_player()> citeste id ul jucatorului care trebuie mutat, precum
+si setul de directii in care acesta se va deplasa. Pentru fiecare directie, ea
+va apela o functie <move_[direction]()> si va verifica dupa aceasta daca a ramas
+un singur pitic pe ghetar.
+6) Functiile <move_[direction]()>, unde direction este una ditre {up, down, left,
+right} vor muta jucatorul in acea directie daca este posibil, si in caz ca celula
+nu este goala, va apela functia <fight_winner()>, pentru bulgareala.
+7) Functia <fight_winner> realizeaza bulgareala, impreuna cu urmarile ei (mesaje
+de eliminare) si intoarce indicele piticului castigator.
+8) Functiile <snowstorm()>, <scoreboard()>, <meltdown()> realizeaza comenzile
+corespunzatoare denumirilor, alte explicatii sunt inutile.
+9) Functia <finish()> afiseaza mesajul final in care un jucator este declarat
+castigator. Ea este doar in cazul in care remain = 1 si il va modifica in 0
+pentru a nu mai fi reapelata ulterior.
+
+Obs: Campul player al ghetarului nu era neaparat necesar. L-am folosit totusi
+pentru a nu mai parcurge vectorul de pitici de fiecare data cand am comanda
+MOVE (pentru a verifica daca celula in care se muta piticul este deja ocupata).
+
+	Sper ca n-am ratat nimic :))
